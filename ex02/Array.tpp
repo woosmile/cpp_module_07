@@ -60,7 +60,15 @@ unsigned int Array<T>::size() const
 }
 
 template <typename T>
-T& Array<T>::operator[](long idx) const
+T& Array<T>::operator[](const long idx)
+{
+	if (idx < 0 || idx >= _len)
+		throw (Array<T>::InvalidIndex());
+	return (_array_ptr[idx]);
+}
+
+template <typename T>
+const T& Array<T>::operator[](const long idx) const
 {
 	if (idx < 0 || idx >= _len)
 		throw (Array<T>::InvalidIndex());

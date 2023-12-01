@@ -15,7 +15,8 @@ class Array
 		Array<T>&	operator=(const Array<T> &other);
 	public:
 		unsigned int size() const;
-		T& operator[](long idx) const;
+		T& operator[](const long idx);
+		const T& Array<T>::operator[](const long idx) const;
 	public:
 		class InvalidIndex: public std::exception
 		{
